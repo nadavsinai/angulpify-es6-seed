@@ -40,11 +40,11 @@ global.config = {
   filenames: {
     build: {
       styles: 'bundle.css',
-      scripts: 'bundle.js'
+      scripts: 'index.js'
     },
     release: {
       styles: 'bundle.min.css',
-      scripts: 'bundle.min.js'
+      scripts: 'index.min.js'
     },
     templates: {
       compiled: 'templates.js',

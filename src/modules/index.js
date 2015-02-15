@@ -5,5 +5,5 @@ require('jquery');
 require('angular');
 require('angular-ui-bootstrap');
 require('angular-ui-router');
-//app entry point
+////app entry point
 require('./app');

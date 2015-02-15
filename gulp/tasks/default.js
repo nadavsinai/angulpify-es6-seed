@@ -15,7 +15,7 @@ module.exports = gulp.task('default', function () {
     } else {
         runSequence(
             'clean',
-            ['index', 'styles', 'images', 'assets', 'templates', 'lint'],
+            ['index', 'styles', 'images', 'assets', 'templates', 'lint','tdd'],
             ['watchify', 'watch', 'serve']
         );
     }

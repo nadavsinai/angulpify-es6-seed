@@ -29,8 +29,8 @@ var notify = function (filename) {
 var bundler = function (filename) {
     var b = browserify(_.extend(options, {entries: filename}));
 // transforms
-    b.transform({ global: true },browserifyShim);
     b.transform(to5ify.configure({modules: "common"}));
+    b.transform({global: true}, browserifyShim);
 // events
     b.on("error", function (err) {
         console.log("Error : " + err.message);

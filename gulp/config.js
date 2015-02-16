@@ -10,6 +10,8 @@ global.config = {
       assets: [SRC_FOLDER + '/assets/**/*', '!' + SRC_FOLDER + '/assets/images/**/*'],
       images: SRC_FOLDER + '/assets/images/**/*',
       scripts: SRC_FOLDER + '/modules/**/*.js',
+      testScripts: SRC_FOLDER + '/modules/**/*.spec.js',
+      testAssets: SRC_FOLDER + '/testAssets.js',
       styles: SRC_FOLDER + '/styles/app.less',
       stylesGlob: SRC_FOLDER + '/styles/**/*.less',
       templates: SRC_FOLDER + '/modules/**/*.html',

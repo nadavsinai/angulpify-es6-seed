@@ -15,8 +15,8 @@ module.exports = gulp.task('default', function () {
     } else {
         runSequence(
             'clean',
-            ['index', 'styles', 'images', 'assets', 'templates', 'lint','tdd'],
-            ['watchify', 'watch', 'serve']
+            ['index', 'styles', 'images', 'assets', 'templates', 'lint'],
+            ['watchify', 'watch', 'serve','tdd']
         );
     }
 });

@@ -1,29 +1,21 @@
-(function () {
-    'use strict';
-    var gulp = require('gulp'), karma = require('gulp-karma');
+var gulp = require('gulp');
+var karma = require('karma').server;
 
-    var testFiles = [
-        config.paths.src.scripts
-    ];
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+    karma.start({
+        configFile: __dirname + '/../../karma.conf.js',
+        singleRun: true
+    }, done);
+});
 
-    gulp.task('test', function () {
-        // Be sure to return the stream
-        return gulp.src(testFiles)
-            .pipe(karma({
-                configFile: 'karma.conf.js',
-                action: 'run'
-            }))
-            .on('error', function (err) {
-                // Make sure failed tests cause gulp to exit non-zero
-                throw err;
-            });
-    });
-
-    gulp.task('tdd', function () {
-        gulp.src(testFiles)
-            .pipe(karma({
-                configFile: '../karma.conf.js',
-                action: 'watch'
-            }));
-    });
-})();
+/**
+ * Watch for file changes and re-run tests on each change
+ */
+gulp.task('tdd', function (done) {
+    karma.start({
+        configFile: __dirname + '/../../karma.conf.js'
+    }, done);
+});

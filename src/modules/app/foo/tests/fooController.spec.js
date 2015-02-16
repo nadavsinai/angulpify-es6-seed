@@ -1,18 +1,16 @@
 (function () {
     'use strict';
+    require('./../index'); //load the foo module in which the controller resides
     var scope, ctrl;
     describe('testing fooController', function () {
-        module('build.foo');
-        beforeEach(function () {
-            //do something
-            inject(function ($rootScope, $controller) {
-                scope = $rootScope.$new();
-                ctrl = $controller.get('fooController')({$scope: scope});
-            })
-        });
+        beforeEach(angular.mock.module('build.foo'));
+        beforeEach(inject(function ($rootScope, $controller) {
+            scope = $rootScope.$new();
+            ctrl = $controller('fooController',{$scope: scope});
+        }));
         it('tests scope.person exists', function () {
             expect(scope.person).toBeDefined();
-        })
-    })
+        });
+    });
 })();
 

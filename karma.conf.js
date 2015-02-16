@@ -1,14 +1,22 @@
 require('./gulp/config');
-module.exports = function (config) {
-    config.set({
-        frameworks: ['browserify','jasmine'],
-        browsers:['PhantomJS'],
-        preprocessors: {
-            'src/modules/app/index.js': [ 'browserify' ]
-        },
+var scriptObj = {};
+scriptObj[config.paths.src.testScripts] = ['browserify'];
+scriptObj[config.paths.src.testAssets] = ['browserify'];
+module.exports = function (karma) {
+    karma.set({
+        frameworks: ['browserify', 'jasmine'],
+        browsers: ['PhantomJS'],
+        plugins: [
+            'karma-jasmine',
+            'karma-browserify',
+            'karma-phantomjs-launcher',
+            'karma-chrome-launcher'
+        ],
+        files: [config.paths.src.testAssets, config.paths.src.testScripts],
+        preprocessors: scriptObj,
         browserify: {
             debug: true,
-            transform: [ '6to5ify','browserify-shim' ]
+            transform: ['browserify-shim','6to5ify' ]
         }
     });
 };
